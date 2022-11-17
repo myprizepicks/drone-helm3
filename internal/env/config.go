@@ -115,7 +115,7 @@ func NewConfig(stdout, stderr io.Writer) (*Config, error) {
 	}
 
 	cfg.deprecationWarn()
-
+	cfg.Release = strings.ToLower(cfg.Release)
 	return &cfg, nil
 }
 

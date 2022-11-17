@@ -2,6 +2,7 @@ package run
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/pelotech/drone-helm3/internal/env"
 )
@@ -36,7 +37,7 @@ func NewUpgrade(cfg env.Config) *Upgrade {
 	return &Upgrade{
 		config:          newConfig(cfg),
 		chart:           cfg.Chart,
-		release:         cfg.Release,
+		release:         strings.ToLower(cfg.Release),
 		chartVersion:    cfg.ChartVersion,
 		dryRun:          cfg.DryRun,
 		wait:            cfg.Wait,

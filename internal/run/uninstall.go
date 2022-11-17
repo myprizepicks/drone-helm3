@@ -2,6 +2,8 @@ package run
 
 import (
 	"fmt"
+	"strings"
+
 	"github.com/pelotech/drone-helm3/internal/env"
 )
 
@@ -18,7 +20,7 @@ type Uninstall struct {
 func NewUninstall(cfg env.Config) *Uninstall {
 	return &Uninstall{
 		config:      newConfig(cfg),
-		release:     cfg.Release,
+		release:     strings.ToLower(cfg.Release),
 		dryRun:      cfg.DryRun,
 		keepHistory: cfg.KeepHistory,
 	}

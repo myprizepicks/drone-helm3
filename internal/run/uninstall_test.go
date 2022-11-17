@@ -1,10 +1,11 @@
 package run
 
 import (
+	"testing"
+
 	"github.com/golang/mock/gomock"
 	"github.com/pelotech/drone-helm3/internal/env"
 	"github.com/stretchr/testify/suite"
-	"testing"
 )
 
 type UninstallTestSuite struct {
@@ -37,7 +38,7 @@ func TestUninstallTestSuite(t *testing.T) {
 func (suite *UninstallTestSuite) TestNewUninstall() {
 	cfg := env.Config{
 		DryRun:      true,
-		Release:     "jetta_id_love_to_change_the_world",
+		Release:     "JETTA_id_love_to_change_the_world",
 		KeepHistory: true,
 	}
 	u := NewUninstall(cfg)
